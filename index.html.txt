@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة الرياضيات</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #f4f6f9;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ربط الـ Apps Script جوه إطار بيحتفظ بالذاكرة -->
+    <iframe id="platformFrame" src="https://script.google.com/macros/s/AKfycbxk2PG2hxTkIMAjaWStYrCshm-WQUEjYeR-llPkaO4PT-K6peNKJ2f-eb6CaF02dVJrLw/exec" allow="autoplay; encrypted-media; fullscreen"></iframe>
+
+    <script>
+        // حفظ الـ Session والتخزين المحلي عشان يفضل مسجل دخول
+        window.addEventListener('load', function() {
+            const frame = document.getElementById('platformFrame');
+            // التأكد من استمرار عمل الجلسة
+            setInterval(() => {
+                try {
+                    localStorage.setItem('last_active', Date.now());
+                } catch(e) {}
+            }, 10000);
+        });
+    </script>
+
+</body>
+</html>
